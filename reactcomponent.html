@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery Component</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Define the Image component
+    function Image({ src }) {
+      return <img src={src} alt="Gallery Image" />;
+    }
+
+    // Define the Gallery component
+    function Gallery({ children }) {
+      return (
+        <div style={{ display: 'grid',gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '350px' }}>
+          {children}
+        </div>
+      );
+    }
+
+    // Render the Gallery component with Image children
+    ReactDOM.render(
+      <Gallery>
+        <Image src="https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg" />
+        
+       <Image src="https://images.ctfassets.net/hrltx12pl8hq/a2hkMAaruSQ8haQZ4rBL9/8ff4a6f289b9ca3f4e6474f29793a74a/nature-image-for-website.jpg?fit=fill&w=600&h=400" />
+    
+      </Gallery>,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+</html>
